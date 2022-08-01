@@ -2,7 +2,7 @@
 #
 # Thu Jun  2 10:59:23 2022
 BUILDID=20220602
-CKVER= "10.0 Beta.03"
+CKVER= "10.0 Beta.04"
 #
 # -- Makefile to build C-Kermit for UNIX and UNIX-like platforms --
 #
