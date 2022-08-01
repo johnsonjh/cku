@@ -2839,7 +2839,13 @@ ssl_verify_crl(int ok, X509_STORE_CTX *ctx)
         /*
          * Check date of CRL to make sure it's not expired
          */
-        i = X509_cmp_current_time(X509_CRL_get0_nextUpdate(crl));
+		const ASN1_TIME *nextUpdate;
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
+		nextUpdate = X509_CRL_get_nextUpdate(crl);
+#else
+		nextUpdate = X509_CRL_get0_nextUpdate(crl);
+#endif
+        i = X509_cmp_current_time(nextUpdate);
         if (i == 0) {
             fprintf(stderr, "Found CRL has invalid nextUpdate field.\n");
             X509_STORE_CTX_set_error(ctx,
