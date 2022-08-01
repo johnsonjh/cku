@@ -3066,14 +3066,13 @@ aix aix42 aix43 aix44 aix45 aix50 aix51 aix52 aix53 aix54 aix61:
 	$(MAKE) xermit KTARGET=$${KTARGET:-$(@)} \
 	"CFLAGS= -DAIXRS -DAIX41 -DAIX42 -DSVR4 -DSTERMIOX -DTCPSOCKET \
 	-DDIRENT -DCK_ANSIC -DCLSOPN -DCK_CURSES -DCK_NEWTERM -DFNFLOAT \
-	-DSELECT -DSELECT_H -DNOGETUSERSHELL -qmaxmem=16000 -O \
+	-DSELECT -DSELECT_H -DNOGETUSERSHELL -O \
 	-D_ALL_SOURCE \
 	-DCKCPU=\\\"`uname -p`\\\" \
 	-DHERALD=\"\\\" IBM AIX `uname -v`.`uname -r`\\\"\" \
 	-D_LARGE_FILES $(KFLAGS)" "LIBS=-lcurses -lm"
 
 # Same but using gcc instead of cc
-# This works but we get "gcc: unrecognized option '-qmaxmem-..'" each module.
 aixg:
 	@echo "Using gcc..."
 	$(MAKE) aix KTARGET=$${KTARGET:-$(@)} \
