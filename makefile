@@ -3070,7 +3070,7 @@ aix aix42 aix43 aix44 aix45 aix50 aix51 aix52 aix53 aix54 aix61:
 	-D_ALL_SOURCE \
 	-DCKCPU=\\\"`uname -p`\\\" \
 	-DHERALD=\"\\\" IBM AIX `uname -v`.`uname -r`\\\"\" \
-	-D_LARGE_FILES $(KFLAGS)" "LNKFLAGS = -s" "LIBS=-lcurses -lm"
+	-D_LARGE_FILES $(KFLAGS)" "LIBS=-lcurses -lm"
 
 # Same but using gcc instead of cc
 # This works but we get "gcc: unrecognized option '-qmaxmem-..'" each module.
@@ -3103,7 +3103,7 @@ aix+ssl aix51+openssl aix52+openssl aix53+openssl:
 	-DCKCPU=\\\"`uname -p`\\\" \
 	-DHERALD=\"\\\" IBM AIX `uname -v`.`uname -r`\\\"\" \
 	-DCK_AUTHENTICATION -DCK_SSL -DOPENSSL_097 $(SSLINC) $(KFLAGS)" \
-	"LNKFLAGS=-s" "LIBS=$(SSLLIB) -lssl -lcrypto -lcurses -lm -lcrypt"
+	"LIBS=$(SSLLIB) -lssl -lcrypto -lcurses -lm -lcrypt"
 
 # AIX 5.3 or 6.1 or later with IBM OpenSSL, which is always in the directories
 # shown below so you don't have to set SSLINC and SSLLIB.  If for some reason
