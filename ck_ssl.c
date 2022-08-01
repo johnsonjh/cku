@@ -2836,6 +2836,29 @@ ssl_verify_crl(int ok, X509_STORE_CTX *ctx)
             return 0;
         }
 
+		/*
+		 * Check date of CRL to make sure it's not invalid
+		 */
+		const ASN1_TIME *lastUpdate;
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
+		lastUpdate = X509_CRL_get_lastUpdate(crl);
+#else
+		lastUpdate = X509_CRL_get0_lastUpdate(crl);
+#endif
+        i = X509_cmp_current_time(lastUpdate);
+        if (i == 0) {
+            fprintf(stderr, "Found CRL has invalid lastUpdate field.\n");
+            X509_STORE_CTX_set_error(ctx,
+                                    X509_V_ERR_ERROR_IN_CRL_NEXT_UPDATE_FIELD);
+#if OPENSSL_VERSION_NUMBER >= 0x10100005L
+            X509_OBJECT_free(obj);
+#else
+            X509_OBJECT_free_contents(&obj);
+#endif
+			X509_STORE_CTX_free(store_ctx);
+			return 0;
+		}
+
         /*
          * Check date of CRL to make sure it's not expired
          */
