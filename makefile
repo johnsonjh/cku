@@ -3060,6 +3060,7 @@ rtacis:
 
 # This one should work for any AIX 4.2 or later: "make aix".
 # Other tags are for compatibility with old makefile targets.
+# Change `-O3` to `-O` if using `-O3` causes troubles.
 #OK: 2011/06/11
 aix aix42 aix43 aix44 aix45 aix50 aix51 aix52 aix53 aix54 aix61:
 	@echo Making C-Kermit $(CKVER) for IBM AIX...
@@ -3088,6 +3089,8 @@ aixg:
 #  SSLINC=-I/opt/ssl/include SSLLIB=-L/opt/ssl/lib make -e aix+ssl
 #
 # To build with gcc use "make aix CC=gcc CC2=gcc", or "make aixg"
+#
+# Change `-O3` to `-O` if using `-O3` causes troubles.
 #
 #OK: 2011/06/15
 aix+ssl aix51+openssl aix52+openssl aix53+openssl:
