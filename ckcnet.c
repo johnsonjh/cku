@@ -10190,7 +10190,7 @@ http_security()
         return("NULL");
 #ifdef CK_SSL
     if (tls_http_active_flag) {
-        SSL_CIPHER * cipher;
+        const SSL_CIPHER * cipher;
         const char *cipher_list;
         static char buf[128];
         buf[0] = NUL;
