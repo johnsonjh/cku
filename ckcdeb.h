@@ -594,7 +594,7 @@ Thu Jun  2 09:49:31 2022
 /* Commented out fdc May 2020 to allow external SSH command */
 /* #ifdef NETPTY */
 /* #undef NETPTY */
-/* #endif /* NETPTY */
+/* #endif NETPTY */
 #ifdef RLOGCODE
 #undef RLOGCODE
 #endif /* RLOGCODE */
