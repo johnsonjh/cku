@@ -52,7 +52,7 @@ hardware platforms.
 
 C-Kermit 9.0.305 Alpha.04 14 Sep 2020
 
-Improvements for VMS builds; most importantly the source-code Zip file 
+Improvements for VMS builds; most importantly the source-code Zip file
 was fixed to include no carriage returns; one or more previous versions
 contained a mix of LF and CRLF format files, which was fatal for VMS.  Also
 included: about nine minor changes to address warnings from the VMS build.
@@ -154,15 +154,15 @@ development version, see:
 
 The current development version is packaged as follows:
 
- 1. In ftp://ftp.kermitproject.org/kermit/test/text/ : 
-    
+ 1. In ftp://ftp.kermitproject.org/kermit/test/text/ :
+
     README.TXT           This file
     cku304dev19.tar      Unix source code, tar archive
     cku304dev19.tar.Z    Ditto, compressed
     cku304dev19.tar.gz   Ditto, gzipped
     cku304dev19.zip      Unix and VMS source code, Zip archive
 
- 2. In ftp://ftp.kermitproject.org/kermit/test/text/ : 
+ 2. In ftp://ftp.kermitproject.org/kermit/test/text/ :
 
     Individual source files
 

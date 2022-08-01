@@ -1432,7 +1432,7 @@ _PROTOTYP(int ckxfprintf,(FILE *, const char *, ...));
 #endif /* CK_POSIX_SIG */
 #endif /* QNX */
 
-/* 
+/*
   void type, normally available only in ANSI compilers.
   The HP-UX exception (for its "bundled" non-ANSI C compiler)
   is known to be valid back to HP-UX 6.5.
@@ -6140,7 +6140,7 @@ _PROTOTYP( long atol, (char *) );
   The maximum file name length in VMS is (or was once) 39, but the full
   path could be any length at all, so this definition might need some
   refinement.
-*/  
+*/
 #ifndef MAXPATHLEN
 #define MAXPATHLEN 1024
 #endif  /* MAXPATHLEN */
@@ -6702,7 +6702,7 @@ _PROTOTYP(int ck_auth_unloaddll, (VOID));
 #endif /* OS2 */
 
 #ifdef NT
-_PROTOTYP(DWORD ckGetLongPathname,(LPCSTR lpFileName, 
+_PROTOTYP(DWORD ckGetLongPathname,(LPCSTR lpFileName,
                                    LPSTR lpBuffer, DWORD cchBuffer));
 #endif /* NT */
 

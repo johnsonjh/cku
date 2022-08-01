@@ -83,7 +83,7 @@ here with pointers to additional information elsewhere.
 .PP
 or:
 .PP
-.B kermit 
+.B kermit
 .I URL
 .PP
 If the first command\(hyline argument is the name of a file, interactive\(hymode
@@ -129,7 +129,7 @@ platforms. For example, C\(hyKermit can't be built with TCP/IP
 support on a platform that does not have TCP/IP header files and
 libraries (and even if Kermit does include TCP/IP support, it
 can't be used to make TCP/IP connections on a computer that does
-not have a TCP/IP stack installed). If your version of 
+not have a TCP/IP stack installed). If your version of
 C\(hyKermit lacks a feature mentioned here, use its SHOW FEATURES command to
 see what might have been excluded.
 .PP
@@ -157,7 +157,7 @@ followed by Return or Enter.)
 .SH OPTIONS
 Here is a list of C\(hyKermit's single\(hyletter command\(hyline options, which
 start with a single dash (\-), in ASCII ("alphabetical") order. Alphabetic
-case is significant (\-A is not the same as \-a).  Action options are 
+case is significant (\-A is not the same as \-a).  Action options are
 tagged "ACTION".
 .TP
 \-0
@@ -315,7 +315,7 @@ name or number. Equivalent to the TELNET command.
 Also see: \-J, \-F.
 .TP
 \-k
-(ACTION) Receive file(s) to standard output, which normally 
+(ACTION) Receive file(s) to standard output, which normally
 would be piped to another process.
 Also see: \-r, \-G.
 .TP
@@ -671,7 +671,7 @@ Tells whether previous command succeeded or failed.
 DATE [ date\(hyand/or\(hytime ]
 Shows current date\(hytime or interprets given date\(hytime.
 .TP
-RUN [ extern\(hycommand [ parameters... ]                 
+RUN [ extern\(hycommand [ parameters... ]
 Runs the given external command. Synonym: !.
 .TP
 EXEC [ extern\(hycommand [ params... ]
@@ -687,16 +687,16 @@ Local File Management
 TYPE [ options ] filename
 Displays the contents of the given file.
 .TP
-MORE [ options ] filename     
+MORE [ options ] filename
 Equivalent to TYPE /PAGE (pause after each screenful).
 .TP
-CAT [ options ] filename      
+CAT [ options ] filename
 Equivalent to TYPE /NOPAGE.
 .TP
-HEAD [ options ] filename     
+HEAD [ options ] filename
 Displays the first few lines of a given file.
 .TP
-TAIL [ options ] filename     
+TAIL [ options ] filename
 Displays the last few lines of a given file.
 .TP
 GREP [ options ] pattern filespec
@@ -706,7 +706,7 @@ the pattern. Synonym: FIND.
 DIRECTORY [ options ] [filespec ]
 Lists files (built\(hyin, many options).
 .TP
-LS [ options ] [ filespec ]   
+LS [ options ] [ filespec ]
 Lists files (runs external "ls" command).
 .TP
 DELETE [ options ] [ filespec ]
@@ -752,7 +752,7 @@ Removes a directory.
 Making Connections
 .RS
 .TP
-SET LINE [ options ] devicename                      
+SET LINE [ options ] devicename
 Opens the named serial port. Synonym: SET PORT.
 .TP
 OPEN LINE [ options ] devicename
@@ -776,7 +776,7 @@ Performs secure authentication on a TCP/IP connection.
 SET NETWORK TYPE { TCP/IP, X.25, ... }
 Selects network type for subsequent SET HOST commands.
 .TP
-SET HOST [ options ] host [ port ]                          
+SET HOST [ options ] host [ port ]
 Opens a network connection to the given host and port.
 .TP
 SET HOST * port
@@ -863,7 +863,7 @@ Closes the currently open FTP connection.
 HTTP CLOSE
 Closes the currently open HTTP connection.
 .TP
-EXIT 
+EXIT
 Also closes all connections. Synonym: QUIT.
 .TP
 SET EXIT WARNING OFF
@@ -882,7 +882,7 @@ Sends all files that match.
 RESEND [ options ] filespec
 Resumes an interrupted SEND from the point of failure.
 .TP
-RECEIVE [ options ] [ as\(hyname ]                    
+RECEIVE [ options ] [ as\(hyname ]
 Waits passively for files to arrive. Synonym: R.
 .TP
 LOG TRANSACTIONS [ filename ]
@@ -897,7 +897,7 @@ Use cautious and less fast file\(hytransfer settings.
 ROBUST
 Use ultra\(hyconservative and slow file\(hytransfer settings.
 .TP
-STATISTICS [ options ] 
+STATISTICS [ options ]
 Gives statistics about the most recent file transfer.
 .TP
 WHERE
@@ -935,13 +935,13 @@ Enters Server state.
 Client of Kermit or FTP Server
 .RS
 .TP
-[ REMOTE ] LOGIN [ user password ]         
+[ REMOTE ] LOGIN [ user password ]
 Logs in to a Kermit server or IKSD that requires it.
 .TP
 [ REMOTE ] LOGOUT
 Logs out from a Kermit server or IKSD.
 .TP
-SEND [ options ] filename [ as\(hyname ]                   
+SEND [ options ] filename [ as\(hyname ]
 Sends the given file to the server. Synonyms: S, PUT.
 .TP
 SEND [ options ] filespec
@@ -1031,7 +1031,7 @@ in the middle of a keyword or filename, not just at the beginning. For
 example, "send x?" lists all the files in the current directory whose names
 start with 'x'.
 .SH INITIALIZATION FILE
-In its default configuration, C\(hyKermit executes commands from a file 
+In its default configuration, C\(hyKermit executes commands from a file
 called .kermrc in your home directory when it starts, unless it is given the
 \-Y or \-y command\(hyline option. Custom configurations might substitute a shared
 system\(hywide initialization file. The SHOW FILE command tells what
@@ -1202,11 +1202,11 @@ At the C\(hyKermit command prompt, simply type:
   telnet foo.bar.com
 .fi
 .sp
-(substituting desired hostname or address).  
+(substituting desired hostname or address).
 You can also include a port number:
 .sp
 .nf
-  telnet xyzcorp.com 3000 ; 
+  telnet xyzcorp.com 3000 ;
 .fi
 .sp
 If the connection is successful, Kermit automically enters Connect
@@ -1275,7 +1275,7 @@ PARITY, and so on, and Kermit relays them to the terminal server using
 the protocol specified in the RFC.
 .sp
 More info: HELP SET MODEM, HELP SET LINE, HELP SET SPEED, HELP SET
-FLOW, HELP DIAL, HELP SET DIAL, HELP SET MODEM, HELP SET 
+FLOW, HELP DIAL, HELP SET DIAL, HELP SET MODEM, HELP SET
 CARRIER\-WATCH, SHOW COMMUNICATIONS, SHOW MODEM, SHOW DIAL.
 .TP
 Direct Serial Port
@@ -1295,7 +1295,7 @@ eliminator). From Computer A:
   connect               ; Enter Connect (terminal) state
 .fi
 .sp
-This assumes Computer B is set up to let you log in. If it isn't, you 
+This assumes Computer B is set up to let you log in. If it isn't, you
 can run a copy of Kermit on Computer B and follow approximately the
 same directions. More info: As above plus HELP CONNECT.
 .PP

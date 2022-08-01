@@ -212,14 +212,14 @@ sequenc() {
 		    break;
 		}
 		default:
-		    if ( isdigit(c) ) {	    	/* octal character */
-		    	oct_char = (char) (c & 7); /* most significant digit */
+		    if ( isdigit(c) ) {		/* octal character */
+			oct_char = (char) (c & 7); /* most significant digit */
 			if (isdigit( *(s+1) ) ) {
 			    s++;
 			    oct_char = (char) ((oct_char<<3) | ( *s & 7 ));
 			    if (isdigit( *(s+1) ) ) {
 				s++;
-			    	oct_char = (char) ((oct_char<<3) | ( *s & 7 ));
+				oct_char = (char) ((oct_char<<3) | ( *s & 7 ));
 			    }
 			}
 			seq_buf[i++] = oct_char;
@@ -646,15 +646,15 @@ flushi() {
 	if (n > MAXBURST) n = MAXBURST;	/* Make sure not too much, */
 	myflsh();			/* and that buffers are empty. */
 	while (n-- > 0) {
-  	    x = ttinc(0);		/* Collect a character */
+	    x = ttinc(0);		/* Collect a character */
 #ifdef NETCONN
 #ifdef TNCODE
 /* Check for telnet protocol negotiation */
-  	    if (is_tn && ((x & 0xff) == IAC) ) {
+	    if (is_tn && ((x & 0xff) == IAC) ) {
 		myflsh();		/* Sync output */
-  		switch (tn_doop((CHAR)(x & 0xff),duplex,ttinc)) {
-  		  case 2: duplex = 0; break;
-  		  case 1: duplex = 1;
+		switch (tn_doop((CHAR)(x & 0xff),duplex,ttinc)) {
+		  case 2: duplex = 0; break;
+		  case 1: duplex = 1;
 		  default: break;
 		}
 
@@ -662,8 +662,8 @@ flushi() {
 		if ((n = ttchk()) < 0)
 		  return;
 		if (n > MAXBURST) n = MAXBURST;
-  		continue;
-  	    }
+		continue;
+	    }
 #endif /* TNCODE */
 #endif /* NETCONN */
 	    if (scr_echo) conbuf[concnt++] = (CHAR) x; /* buffer for console */
@@ -676,7 +676,7 @@ flushi() {
 #endif /* OSK */
 #endif /* UNIX */
 		sesbuf[sescnt++] = (CHAR) x; /* buffer for session log */
-  	}
+	}
 	myflsh();
     } else ttflui();			/* Otherwise just flush. */
 }

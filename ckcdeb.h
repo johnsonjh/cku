@@ -52,7 +52,7 @@ Thu Jun  2 09:49:31 2022
   on amd64 this saves about 185K out of 2.48MB, so this is really more
   about political correctness that saving space.  -fdc 12 May 2022
 */
-#ifdef NODEPRECATED 
+#ifdef NODEPRECATED
 #ifndef NOFTP                           /* No more FTP client */
 #define NOFTP
 #endif  /* NOFTP */
@@ -1481,7 +1481,7 @@ _PROTOTYP(int ckxfprintf,(FILE *, const char *, ...));
 #endif /* CK_POSIX_SIG */
 #endif /* QNX */
 
-/* 
+/*
   void type, normally available only in ANSI compilers.
   The HP-UX exception (for its "bundled" non-ANSI C compiler)
   is known to be valid back to HP-UX 6.5.
@@ -6744,7 +6744,7 @@ _PROTOTYP( int ftpisloggedin, (void));
 _PROTOTYP( int ftpissecure, (void));
 #endif /* NEWFTP */
 
-/* 
+/*
   -DNOTCPIP = Build with no TCP/IP support,
    which unexpectedly turned out not to be a major task.
    - fdc May 2022
@@ -6849,7 +6849,7 @@ _PROTOTYP(int ck_auth_unloaddll, (VOID));
 #endif /* OS2 */
 
 #ifdef NT
-_PROTOTYP(DWORD ckGetLongPathname,(LPCSTR lpFileName, 
+_PROTOTYP(DWORD ckGetLongPathname,(LPCSTR lpFileName,
                                    LPSTR lpBuffer, DWORD cchBuffer));
 #endif /* NT */
 

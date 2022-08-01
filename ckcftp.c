@@ -26,7 +26,7 @@ char *ckftpv = "FTP Client, 9.0.266, 8 May 2022";
 
   . Implement recursive NLST downloads by trying to CD to each filename.
     If it works, it's a directory; if not, it's a file -- GET it.  But
-    that won't work with servers like wu-ftpd that don't send directory 
+    that won't work with servers like wu-ftpd that don't send directory
     names.  Recursion with MLSD is done.
 
   . Make syslog entries for session?  Files?
@@ -1117,7 +1117,7 @@ FILE * fp_nml = NULL;                   /* Namelist file pointer */
 
 static int csocket = -1;                /* Control socket */
 static int connected = 0;               /* Connected to FTP server */
-/* static unsigned short ftp_port = 0; */ /* FTP port */ 
+/* static unsigned short ftp_port = 0; */ /* FTP port */
 /* static int ftp_port = 0; */		/* SMS 2007/02/15 */
 static int ftp_port = 0;		/* fdc 2007/08/30 */
 #ifdef FTPHOST
@@ -2742,7 +2742,7 @@ dosetftp() {
       }
 
       case FTS_BUG: {
-          if ((x = cmkey(ftpbugtab,nftpbug,"","",xxstring)) < 0) 
+          if ((x = cmkey(ftpbugtab,nftpbug,"","",xxstring)) < 0)
 	    return(x);
           switch (x) {
 #ifdef CK_SSL
@@ -3616,7 +3616,7 @@ syncdir(local,sim) char * local; int sim; {
                         cdsimlvl++;
                     } else {
                         if (!doftpxmkd(p,0)) { /* Can't CD - try to create */
-			    debug(F110,"ftp syncdir mkdir failed",p,0); 
+			    debug(F110,"ftp syncdir mkdir failed",p,0);
 /*
   Suppose we are executing SEND /RECURSIVE.  Locally we have a directory
   FOO but the remote has a regular file with the same name.  We can't CD
@@ -3626,7 +3626,7 @@ syncdir(local,sim) char * local; int sim; {
                             quiet = saveq;
                             return(0);
                         }
-			debug(F110,"ftp syncdir mkdir OK",p,0); 
+			debug(F110,"ftp syncdir mkdir OK",p,0);
                         if (fdispla == XYFD_B) {
                             printf(" CREATED DIRECTORY %s\n",p);
                         } else if (fdispla) {
@@ -3635,12 +3635,12 @@ syncdir(local,sim) char * local; int sim; {
                             ftscreen(SCR_ST,ST_MSG,(CK_OFF_T)0,msgbuf);
                         }
                         if (!doftpcwd(p,0)) { /* Try again to CD */
-			    debug(F110,"ftp syncdir CD failed",p,0); 
+			    debug(F110,"ftp syncdir CD failed",p,0);
                             quiet = saveq;
                             return(0);
                         }
                         if (fdispla == XYFD_B) printf(" CWD %s\n",p);
-			debug(F110,"ftp syncdir CD OK",p,0); 
+			debug(F110,"ftp syncdir CD OK",p,0);
                     }
                 }
                 cdlevel++;
@@ -4023,7 +4023,7 @@ chkmodtime(local,remote,fc) char * local, * remote; int fc; {
             */
 	    int xx;
 #ifdef COMMENT
-#ifdef DEBUG	    
+#ifdef DEBUG
 	    if (deblog) {
 		dbtime("LOCAL",tmlocal);
 		dbtime("REMOT",&tmremote);
@@ -4778,7 +4778,7 @@ zzsend(fd,c) int fd; CHAR c;
     if (iscanceled())                   /* Check for cancellation */
       return(-9);
 
-#ifdef FTP_TIMEOUT    
+#ifdef FTP_TIMEOUT
     ftp_timed_out = 0;
     if (check_data_connection(fd,1) < 0) {
 	ftp_timed_out = 1;
@@ -7489,7 +7489,7 @@ doftpget(cx,who) int cx, who; {         /* who == 1 for ftp, 0 for kermit */
 			tmpsrc = NULL;
 			src = mgetlist[mgetx];
 			usrpath = srclen+1;
-		    }			      
+		    }
 		}
 	    }
 /*
@@ -10110,7 +10110,7 @@ ftpopen(remote, service, use_tls) char * remote, * service; int use_tls; {
 #ifdef FTP_SECURITY
         if (ftp_aut) {
             if (ftp_auth()) {
-                if (ftp_cry 
+                if (ftp_cry
 #ifdef OS2
                      && ck_crypt_is_installed()
 #endif /* OS2 */
@@ -10200,7 +10200,7 @@ ssl_auth() {
         ssl_ftp_ctx = NULL;
     }
 
-    /* The SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS 
+    /* The SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS
      * was added to OpenSSL 0.9.6e and 0.9.7.  It does not exist in previous
      * versions
      */
@@ -10373,7 +10373,7 @@ ssl_auth() {
                 printf("?Unable to load crl-dir: %s\r\n",path);
         }
 #endif /* NT */
-        
+
         ckmakmsg(path,CKMAXPATH,exedir,"ca_crls.pem",NULL,NULL);
         if (X509_STORE_load_locations(crl_store,path,NULL) == 0) {
             debug(F110,"ftp ssl auth unable to load file",path,0);
@@ -10854,7 +10854,7 @@ parsefacts(s) char * s; {		/* Parse MLS[DT] File Facts */
 
     while ((p = ckstrchr(s,'='))) {
 	*p = NUL;			/* s points to fact */
-	i = xlookup(facttab,s,nfacttab,&x); 
+	i = xlookup(facttab,s,nfacttab,&x);
 	debug(F111,"ftp parsefact fact",s,i);
 	*p = '=';
 	s = p+1;			/* Now s points to arg */
@@ -11760,7 +11760,7 @@ doftpsend2(threadinfo) VOID * threadinfo;
     register int c, d = 0;
     int n, t, x, notafile, unique = 0;
     char *buf, *bufp;
-    
+
 #ifdef NTSIG
     if (threadinfo) {                   /* Thread local storage... */
         TlsSetValue(TlsIndex,threadinfo);
@@ -11878,7 +11878,7 @@ doftpsend2(threadinfo) VOID * threadinfo;
 	  which means STOU is not accepted, period.
 	*/
 	if ((x == 5) && stouarg && (ftpcode != 502)) {
-	    x = ftpcmd(ftpsnd.cmd,NULL,ftpsnd.incs,ftpsnd.outcs,ftp_vbm); 
+	    x = ftpcmd(ftpsnd.cmd,NULL,ftpsnd.incs,ftpsnd.outcs,ftp_vbm);
 	    if (x == REPLY_PRELIM)	/* If accepted */
 	      stouarg = 0;		/* flag no STOU arg for this server */
 	}
@@ -11929,7 +11929,7 @@ doftpsend2(threadinfo) VOID * threadinfo;
         errno = d = 0;
 #ifdef VMS
 	/*
-	  This is because VMS zxin() is C-Library fread() 
+	  This is because VMS zxin() is C-Library fread()
           but the file was opened with zopeni(), which is RMS.
 	*/
 	while (((c = zminchar()) > -1) && !cancelfile) {
@@ -12127,7 +12127,7 @@ sendrequest(cmd, local, remote, xlate, incs, outcs, restart)
     if (sndfilter)                      /* If sending thru a filter */
       pipesend = 1;                     /* set this for open and i/o */
 #endif /* PIPESEND */
-    
+
 #ifdef VMS
     debug(F101,"XXX before openi binary","",binary);
     debug(F101,"XXX before openi ftp_typ","",ftp_typ);
@@ -12675,7 +12675,7 @@ Please confirm output file specification or supply an alternative:";
         }
 #ifdef FTP_TIMEOUT
 	if (c == -3) {
-            debug(F100,"ftp recvrequest timeout","",0); 
+            debug(F100,"ftp recvrequest timeout","",0);
             bytes = (CK_OFF_T)-1;
 	    ftp_timed_out = 1;
 	    ftpcode = -3;
@@ -12754,8 +12754,8 @@ Please confirm output file specification or supply an alternative:";
 #endif /* COMMENT */
 
 #ifdef OS2
-                if ( out2screen &&            /* we're translating to UCS-2 */ 
-                     !k95stdout && !inserver) /* for the real screen... */     
+                if ( out2screen &&            /* we're translating to UCS-2 */
+                     !k95stdout && !inserver) /* for the real screen... */
                 {
                     union {
                         USHORT ucs2;
@@ -12773,7 +12773,7 @@ Please confirm output file specification or supply an alternative:";
                                        &colorcmd
                                        );
 
-                } else 
+                } else
 #endif /* OS2 */
                 {
                     if ((x = xpnbyte(c0,TC_UCS2,ftprecv.fcs,fn)) < 0) break;
@@ -12897,7 +12897,7 @@ Please confirm output file specification or supply an alternative:";
     close(ftprecv.din);
 #endif /* TCPIPLIB */
     ftprecv.reply = getreply(0,ftprecv.fcs,ftprecv.rcs,ftp_vbm,0);
-    ftprecvret = ((ftpcode < 0 || ftprecv.reply == REPLY_TRANSIENT || 
+    ftprecvret = ((ftpcode < 0 || ftprecv.reply == REPLY_TRANSIENT ||
                    ftprecv.reply == REPLY_ERROR) ? -1 : 0);
 #ifdef NTSIG
      ckThreadEnd(threadinfo);
@@ -12971,7 +12971,7 @@ recvrequest(cmd, local, remote, lmode, printnames, recover, pipename,
 #ifdef COMMENT
     if (!out2screen && !pipename && ftprecv.is_retr) { /* To real file */
         if (recursive && ckstrchr(local,'/')) {
-	    
+
         }
     }
 #endif /* COMMENT */
@@ -14361,7 +14361,7 @@ setpbsz(size) unsigned int size;
     } else
       maxbuf = actualbuf;
     ucbufsiz = maxbuf - FUDGE_FACTOR;
-    debug(F101,"setpbsz ucbufsiz","",ucbufsiz);    
+    debug(F101,"setpbsz ucbufsiz","",ucbufsiz);
     reply_parse = NULL;
     return(0);
 }
@@ -14569,7 +14569,7 @@ fts_dpl(x) int x; {
 
 static int
 fts_cpl(x) int x; {
-    if (!auth_type 
+    if (!auth_type
 #ifdef OS2
          || !ck_crypt_is_installed()
 #endif /* OS2 */
@@ -15138,7 +15138,7 @@ ftp_login(host) char * host; {          /* (also called from ckuusy.c) */
               else
                 ckmakmsg(prompt,PROMPTSIZ," Name (",host,"): ",NULL);
               tmp[0] = '\0';
-              
+
               ok = uq_txt(NULL,prompt,1,NULL,tmp,PASSBUFSIZ,NULL,
                           DEFAULT_UQ_TIMEOUT);
               if (!ok || *tmp == '\0')
@@ -15591,14 +15591,14 @@ remote_files(new_query, arg, pattern, proxy_switch)
 	if (!forced || !mgetmethod)	/* Not forced... */
 	  mgetmethod = (sfttab[0] && sfttab[SFT_MLST]) ? /* so pick one */
 	      SND_MLS :
-	      SND_NLS; 
-/*                                           
+	      SND_NLS;
+/*
   User's Command:                 Result:
     mget /nlst                     NLST (NULL)
     mget /nlst foo                 NLST foo
-    mget /nlst *.txt               NLST *.txt 
+    mget /nlst *.txt               NLST *.txt
     mget /nlst /match:*.txt        NLST (NULL)
-    mget /nlst /match:*.txt  foo   NLST foo   
+    mget /nlst /match:*.txt  foo   NLST foo
     mget /mlsd                     MLSD (NULL)
     mget /mlsd foo                 MLSD foo
     mget /mlsd *.txt               MLSD (NULL)
@@ -15717,7 +15717,7 @@ remote_files(new_query, arg, pattern, proxy_switch)
 	    rfrc = -3;			/* means we're done */
 	    return(NULL);
 	}
-	printf("POPPING(%d)...\n",mlsdepth-1); 
+	printf("POPPING(%d)...\n",mlsdepth-1);
 	if (tmpfilnam[mlsdepth]) free(tmpfilnam[mlsdepth]);
 	mlsdepth--;
 	doftpcdup();
@@ -15770,7 +15770,7 @@ remote_files(new_query, arg, pattern, proxy_switch)
 	    if (mlsdepth < MLSDEPTH) {
 		char * p2 = NULL;
 		mlsdepth++;
-		printf("RECURSING [%s](%d)...\n",p,mlsdepth); 
+		printf("RECURSING [%s](%d)...\n",p,mlsdepth);
 		if (doftpcwd(p,0) > 0) {
 		    int x;
 		    if (!ckstrchr(p,'/')) {
@@ -15818,8 +15818,8 @@ remote_files(new_query, arg, pattern, proxy_switch)
     if (deblog) {
 	debug(F101,"remote_files havesize","",havesize);
 	debug(F101,"remote_files havetype","",havetype);
-	debug(F110,"remote_files havemdtm",havemdtm,0);	
-	debug(F110,"remote_files name",p,0);	
+	debug(F110,"remote_files havemdtm",havemdtm,0);
+	debug(F110,"remote_files name",p,0);
     }
 #endif /* DEBUG */
     return((CHAR *)p);
@@ -15987,7 +15987,7 @@ secure_write(fd, buf, nbyte)
 {
     int ret;
 
-#ifdef FTP_TIMEOUT    
+#ifdef FTP_TIMEOUT
     ftp_timed_out = 0;
     if (check_data_connection(fd,1) < 0) {
 	ftp_timed_out = 1;
@@ -16459,7 +16459,7 @@ secure_getc(fd,fc) int fd,fc; {		/* file descriptor, function code */
                 nin = bufp = 0;
 		ftp_timed_out = 1;
 		return(-3);
-	    }		
+	    }
 #endif	/* FTP_TIMEOUT */
 
             nin = bufp = recv(fd,(char *)ucbuf,actualbuf,0);

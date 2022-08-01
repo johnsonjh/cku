@@ -414,7 +414,7 @@ des_new_random_key(Block B)
     /* WARNING:
        This might need to have the "rc = " removed because this
        is VOID in later, and maybe even all, versions.
-    */       
+    */
     rc = des_random_key(B);
     return(rc);
 }

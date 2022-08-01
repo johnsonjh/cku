@@ -90,12 +90,12 @@ static char sccsid[] = "@(#)C-Kermit 10.0";
   The C-Kermit Version number is major.minor.edit (integers).
   Major version always goes up.
 
-  The Minor version is an artifact from the DECSYSTEM-20 versioning 
+  The Minor version is an artifact from the DECSYSTEM-20 versioning
   system and hasn't been used since C-Kermit 7.1.
 
   The Edit number is sequential, always goes up, but there can be gaps.
   For example there might be many edits between releases.
-  
+
   If the major goes to 10, some version-number-based feature tests
   could fail.  It might be better to use the minor version field
   for future releases.
@@ -2694,7 +2694,7 @@ makever() {                             /* Make version string from pieces */
         return;
     }
     x += y + 1;
-  
+
     s = " OPEN SOURCE:";		/* C-Kermit 9.0 and later */
     y = strlen(s);
     if (CKVERLEN < x + y + 1)
@@ -3562,7 +3562,7 @@ main(argc,argv) int argc; char **argv;
 #ifdef HAVE_LOCALE
 	if (nolocale) {                 /* --nolocale option on command line */
             setlocale(LC_ALL, "C");     /* Restore our locale to default */
-	}	
+	}
 #endif /* HAVE_LOCALE */
 
 #ifndef NOTCPIP
@@ -3645,7 +3645,7 @@ main(argc,argv) int argc; char **argv;
 #endif /* NOCMDL */
 #else /* not NOICP */
 #ifdef HAVE_LOCALE
-    if (!nolocale) {	
+    if (!nolocale) {
 	/* Can also disable locale processing by setting K_NOLOCALE=1 */
 	char *s = getenv("K_NOLOCALE");	/* environment variable */
 	if (s)

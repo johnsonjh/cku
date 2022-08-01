@@ -1455,7 +1455,7 @@ _PROTOTYP(int sndwho,(char *));
 	    ) {
 	    zstrip(fspec,&fnp);		/* don't send back full path */
 #ifdef UNIX
-/* 
+/*
   fdc, November 2012.  Unix pathnames are getting longer, causing the full
   pathname that remote C-Kermit, when receiving a file, sends back to a local
   Kermit (e.g. K95) to overflow the file transfer display, so the user can't
@@ -1467,7 +1467,7 @@ _PROTOTYP(int sndwho,(char *));
 	    char *p;
 	    int len = 0, ok = 0;
 /*
-  fdc, March 2013: If the file is being received to Kermit's current 
+  fdc, March 2013: If the file is being received to Kermit's current
   directory, don't send the current-directory path.
 */
 	    p = zgtdir();		/* Get current directory */
@@ -2677,7 +2677,7 @@ srv_login() {
 			x_logged = 1;
 		      debug(F101,"REMOTE LOGIN 4","",x_logged);
 		  }
-#ifdef CK_LOGIN 
+#ifdef CK_LOGIN
                 else {
 		    x_logged = ckxlogin((CHAR *)f1,(CHAR *)f2,NULL,0);
 		    debug(F101,"REMOTE LOGIN 5","",x_logged);
